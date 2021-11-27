@@ -31,10 +31,6 @@ class Product
     public function createProduct()
     {
         // sanitize
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->type = htmlspecialchars(strip_tags($this->type));
-        $this->price = htmlspecialchars(strip_tags($this->price));
-        $this->description = htmlspecialchars(strip_tags($this->description));
         $sqlQuery = "INSERT INTO
 " . $this->db_table . " SET name = '" . $this->name . "',
 type = '" . $this->type . "',
@@ -62,12 +58,6 @@ price = '" . $this->price . "',description = '" . $this->description . "'";
     // UPDATE
     public function updateProduct()
     {
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->type = htmlspecialchars(strip_tags($this->type));
-        $this->price = htmlspecialchars(strip_tags($this->price));
-        $this->description = htmlspecialchars(strip_tags($this->description));
-        $this->id = htmlspecialchars(strip_tags($this->id));
-
         $sqlQuery = "UPDATE " . $this->db_table . " SET name = '" . $this->name . "',
 type = '" . $this->type . "',
 price = '" . $this->price . "',description = '" . $this->description . "'

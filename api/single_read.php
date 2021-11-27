@@ -10,7 +10,10 @@ include_once '../product.php';
 $database = new Database();
 $db = $database->getConnection();
 $item = new Product($db);
-$item->id = isset($_GET['id']) ? $_GET['id'] : die();
+
+$entityBody = json_decode(file_get_contents('php://input'), true);
+
+$item->id = isset($entityBody['id']) ? $entityBody['id'] : die();
 $item->getProducts();
 if ($item->name != null) {
     // CREATE ARRAY
